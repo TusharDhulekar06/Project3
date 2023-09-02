@@ -2,13 +2,16 @@ import time
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
+# from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.firefox.service import Service as FirefoxService
+# from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
 
 class Test_firstcase:
     def test_firstcase(self):
-        service=ChromeService(executable_path=ChromeDriverManager().install())
-        driver=webdriver.Chrome(service=service)
+        # service=ChromeService(executable_path=ChromeDriverManager().install())
+        service=FirefoxService(executable_path=GeckoDriverManager().install())
+        driver=webdriver.Firefox(service=service)
 
         driver.get("https://opensource-demo.orangehrmlive.com")
         driver.maximize_window()
